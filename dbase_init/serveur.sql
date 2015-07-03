@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jul 02, 2015 at 08:35 AM
+-- Generation Time: Jul 03, 2015 at 06:14 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.5.26
 
@@ -43,6 +43,26 @@ INSERT INTO `categorie` (`id`, `name`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `prix`
+--
+
+CREATE TABLE IF NOT EXISTS `prix` (
+  `id` int(11) NOT NULL,
+  `prix` float NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `prix`
+--
+
+INSERT INTO `prix` (`id`, `prix`, `name`) VALUES
+(1, 1.2, 'cannette'),
+(2, 2.5, 'barre');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `produits`
 --
 
@@ -51,22 +71,22 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `prix_achat` float NOT NULL,
-  `prix_vente` float NOT NULL,
   `nbr` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `scancode` int(11) NOT NULL,
-  `nbr_limit` int(11) DEFAULT NULL
+  `nbr_limit` int(11) DEFAULT NULL,
+  `id_prix` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `produits`
 --
 
-INSERT INTO `produits` (`id`, `name`, `img`, `prix_achat`, `prix_vente`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`) VALUES
-(1, 'coca-cola', 'http://img0.mxstatic.com/wallpapers/8fb418ea01c531fb5fe5ea2b3ead962e_large.jpeg', 0.5, 1, 40, 1, 4242, 20),
-(2, 'fanta-orange', 'http://www.pizzassimo.com/images/fanta_orange.jpg', 0.5, 1, 40, 1, 666, 15),
-(3, 'twix', 'http://media1.coffee-webstore.com/525-1588-thickbox/barre-chocolat-twix.jpg', 1.5, 2.5, 20, 2, 25565, 10),
-(4, 'lion', 'http://media1.coffee-webstore.com/564-1655-thickbox/boite-barre-chocolat-lion.jpg', 1.5, 2.5, 15, 2, 753, 10);
+INSERT INTO `produits` (`id`, `name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`) VALUES
+(1, 'coca-cola', 'http://img0.mxstatic.com/wallpapers/8fb418ea01c531fb5fe5ea2b3ead962e_large.jpeg', 0.5, 40, 1, 4242, 20, 1),
+(2, 'fanta-orange', 'http://www.pizzassimo.com/images/fanta_orange.jpg', 0.5, 40, 1, 666, 15, 1),
+(3, 'twix', 'http://media1.coffee-webstore.com/525-1588-thickbox/barre-chocolat-twix.jpg', 1.5, 20, 2, 25565, 10, 2),
+(4, 'lion', 'http://media1.coffee-webstore.com/564-1655-thickbox/boite-barre-chocolat-lion.jpg', 1.5, 15, 2, 753, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -92,14 +112,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `pseudo`, `pass`) VALUES
-(2, 'eric', '2662a3c71dbf902fbec15d46139bd6d725991789c570f598743eb2d06ae02e6c79e7187487da2fd5cf69f90551110b16c46a2314960fc2386b340732bf931ad7');
+(3, 'eric', '2662a3c71dbf902fbec15d46139bd6d725991789c570f598743eb2d06ae02e6c79e7187487da2fd5cf69f90551110b16c46a2314960fc2386b340732bf931ad7'),
+(4, 'sduprey', 'c068a2cabe3a61b57e507338b9ba6990a8d99092b9d60c83aac81cff4c0ed52e4621303785521211eb17e5a04dc37a24140b1e4d5eb6b15395b01f172d89d32c');
 
 --
 -- Indexes for dumped tables
@@ -109,6 +130,12 @@ INSERT INTO `user` (`id`, `pseudo`, `pass`) VALUES
 -- Indexes for table `categorie`
 --
 ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `prix`
+--
+ALTER TABLE `prix`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -139,6 +166,11 @@ ALTER TABLE `user`
 ALTER TABLE `categorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `prix`
+--
+ALTER TABLE `prix`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
@@ -152,7 +184,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
