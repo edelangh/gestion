@@ -2,7 +2,7 @@
 <body onload="init()">
 <?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', 'password');
+$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '');
 session_start();
 if (!isset($_SESSION['id']))
 	$_SESSION['id'] = 0;
