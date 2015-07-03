@@ -38,18 +38,7 @@ if (isset($_GET['type']))
 	}
 	else if ($_GET['type'] == "confirme")
 	{
-		$cmd = Array();
-		$prix_total = 0;
-		foreach ($_SESSION['list'] as $key => $nbr)
-		{
-			$res = $bdd->query('SELECT * FROM produits WHERE id='.$key)->fetch();
-			$res = $bdd->query('SELECT * FROM prix WHERE id='.$res['id_prix'])->fetch();
-			// Use JOIN to improve this request
-			$cmd[] = array("id" => $key, "nbr" => $nbr, "prix_unit" => $res['prix']);
-			$prix_total += $res['prix'] * $nbr;
-		}
-		echo $prix_total."euro";
-		echo json_encode($cmd);
+		header('Location: index.php?page=valide');
 
 	/*
 		$reponse = $bdd->query('INSERT INTO ticket(list, prix_total, date, id_user) VALUES (' \
@@ -61,8 +50,6 @@ if (isset($_GET['type']))
 		// Bon javoue que la requet est degueulasse !
 		// et qu'il faudrait utiliser prepare
 		// Mais bon il est 3H et il y en a qui bosse :D
-		echo "<script>alert('all is sell !!!!');</script>";
-		$_SESSION['list'] = Array();
 	}
 }
 
