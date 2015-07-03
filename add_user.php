@@ -1,5 +1,4 @@
 <?php
-
 	try {
 	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', 'password');
 

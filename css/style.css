@@ -1,5 +1,53 @@
 
+/* Le plus beau css de touute ma vie,
+j'espere qu'elle sera courte si je continue comme ca ....
+(Ceci est une blague je ne veut pas mourire !)
+*/
+
+#list {
+    background-color: red;
+    float: left;
+    width: 80%;
+    height: 50%;
+}
+
+#list #action #buy {
+    float: right;
+}
+
+#list #action #clear {
+    float: right;
+}
+
+
+#buy_zone {
+    position: absolute;
+    margin-top: 10%;
+    width: 80%;
+    height: 50%;
+    float: right;
+}
+#buy_zone #categories {
+width: 10%;
+height: 100%;
+    background-color: yellow;
+    float: left;
+}
+
+
+#buy_zone #produits {
+
+width: 90%;
+height: 100%;
+    background-color: pink;
+    float: right;
+}
+
 .produit {
-	height: 8vmin;
-	width: 6vmin;
+    float: left;
+}
+
+img {
+    width: 10vmin;
+    height: 8vmin;
 }
