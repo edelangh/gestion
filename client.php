@@ -2,7 +2,7 @@
 <body onload="init()">
 <?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 session_start();
 if (!isset($_SESSION['id']))
 	$_SESSION['id'] = 0;
@@ -24,10 +24,20 @@ if (isset($_GET['type']))
 	}
 	else if ($_GET['type'] == "buy")
 	{
-		if (!isset($_SESSION['list'][$_GET['id']]))
-			$_SESSION['list'][$_GET['id']] = 0;
-		$_SESSION['list'][$_GET['id']] += 1;
-	}
+		if (isset($_GET['id']))
+			$id = $_GET['id'];
+		else
+		{
+			$req = $bdd->prepare('SELECT id FROM produits WHERE scancode = ?');
+			$id = $req->execute(array($_GET['code']));
+			$id = $req->fetch();
+			$id = $id['id'];
+
+		}
+		if (!isset($_SESSION['list'][$id]))
+			$_SESSION['list'][$id] = 0;
+		$_SESSION['list'][$id] += 1;
+		}
 	else if ($_GET['type'] == "categorie")
 	{
 		$_SESSION['id'] = $_GET['id'];
@@ -64,7 +74,8 @@ $cat = $_SESSION['id'];
 foreach ($_SESSION['list'] as $id => $value)
 {
 	try {
-		$reponse = $bdd->query('SELECT * FROM produits WHERE id='.$id);
+		$reponse = $bdd->prepare('SELECT * FROM produits WHERE id= ?');
+		$reponse->execute(array($id));
 		while ($res = $reponse->fetch())
 		{
 			echo "<div class='produit' id=".$res['id'].">";
@@ -74,7 +85,7 @@ foreach ($_SESSION['list'] as $id => $value)
 
 		}
 	} catch (Exception $e) {
-		echo "Et merde ...";
+		echo "Et merde ... : " . $e->getMessage();
 	}
 }
 ?>
@@ -97,7 +108,9 @@ while ($res = $reponse->fetch())
 ?>
 </div>
 <div id="produits">
-tata
+
+	<input type="text" id="code" autofocus/>
+
 <?php
 
 $reponse = $bdd->query('SELECT * FROM produits WHERE id_categorie='.$cat);

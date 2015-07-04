@@ -1,4 +1,6 @@
 
+CHANGEMENT : scancode doit etre un VARCHAR (255)
+
 === Serveur mere ===
 
 lieux

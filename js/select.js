@@ -8,6 +8,15 @@ function ft_reload(page, type, id) {
 
 }
 
+function ft_reloadCode(page, type, code) {
+            var link = "index.php";
+            link += "?page="+page;
+            link += "&type="+type;
+            link += "&code=" + code;
+            window.location = link;
+
+}
+
 function init()
 {
    $('#list #action #buy ').mousedown(function(event) {
@@ -27,6 +36,14 @@ function init()
             if (event.which == 1)
                 ft_reload("client", "cancel", id);
             });
+
+	$('#code').keyup(function(event){
+	    if(event.keyCode == 13) {
+		    var code = $(this).val();
+		    $(this).val('');
+		    ft_reloadCode("client", "buy", code);
+	    }
+    });
   
     $('#buy_zone .produit ').mousedown(function(event) {
             var id = $(this)[0].id;
