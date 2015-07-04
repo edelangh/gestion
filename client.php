@@ -82,7 +82,6 @@ foreach ($_SESSION['list'] as $id => $value)
 			echo "<img src='".$res['img']."'></img>";
 			echo $value;
 			echo "</div>";
-
 		}
 	} catch (Exception $e) {
 		echo "Et merde ... : " . $e->getMessage();
@@ -100,9 +99,12 @@ foreach ($_SESSION['list'] as $id => $value)
 $reponse = $bdd->query('SELECT * FROM categorie');
 while ($res = $reponse->fetch())
 {
-	echo "<div>";
-	echo "<img class='categorie' id=".$res['id']." src='".$res['img']."'></img>";
-	echo "</div>";
+	$req = $bdd->query('SELECT SUM(nbr) FROM produits WHERE id_categorie =' . $res['id']);
+	if ($req->fetch()[0] > 0) {
+		echo "<div>";
+		echo "<img class='categorie' id=".$res['id']." src='".$res['img']."'></img>";
+		echo "</div>";
+	}
 }
 
 ?>
@@ -113,13 +115,15 @@ while ($res = $reponse->fetch())
 
 <?php
 
-$reponse = $bdd->query('SELECT * FROM produits WHERE id_categorie='.$cat);
+$reponse = $bdd->query('SELECT * FROM produits WHERE id_categorie='.$cat.' AND nbr > 0');
 echo "<div>";
 while ($res = $reponse->fetch())
 {
-	echo "<div class='produit' id=".$res['id'].">";
-	echo "<img src='".$res['img']."'></img>";
-	echo "</div>";
+	// if ($res['nbr'] > 0) {
+		echo "<div class='produit' id=".$res['id'].">";
+		echo "<img src='".$res['img']."'></img>";
+		echo "</div>";
+	// }
 }
 echo "</div>";
 ?>
