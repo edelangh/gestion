@@ -3,6 +3,10 @@
     case '/gestion/products.php':
       $active = 1;
       break;
+
+      case '/gestion/categories.php':
+      $active = 2;
+      break;
     
     default:
       $active = 0;
@@ -28,22 +32,30 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li<?php if ($active == 0) echo " class=\"active\""; ?>>
-					<a href="index.php" >Caisse <span class="sr-only">(current)</span></a>
-				</li>
-				<li<?php if ($active == 1) echo " class=\"active\""; ?>>
-					<a href="products.php">Produit</a>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				<li class="dropdown<?php if ($active == 0) echo " active"; ?>">
+					<a href="index.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caisse <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
+						<li><a href="index.php">Caisse</a></li>
+						<li><a href="#">Erreur de caisse / Remboursement</a></li>
 					</ul>
 				</li>
+				<li class="dropdown<?php if ($active == 1) echo " active"; ?>">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produits<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="products.php">Ajouter</a></li>
+						<li><a href="#">Modifier</a></li>
+						<li><a href="#">Supprimer</a></li>
+					</ul>
+				</li>
+				<li class="dropdown<?php if ($active == 2) echo " active"; ?>" >
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Ajouter</a></li>
+						<li><a href="#">Modifier</a></li>
+						<li><a href="#">Supprimer</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Stats</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
