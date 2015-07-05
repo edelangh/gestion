@@ -9,7 +9,7 @@
 	$req = $bdd->prepare($query);
 	$req->execute(array(
 		"name" => $_POST['name'],
-		"img" => $_POST['img'],
+		"img" => "img/Item/" . $_POST['img'],
 		"cat" => intval($_POST['cat']),
 		"cout" => floatval($_POST['cout']),
 		"qt" => intval($_POST['qt']),
