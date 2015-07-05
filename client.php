@@ -1,9 +1,5 @@
-<script src="js/select.js"></script>
-<body onload="init()">
+<div class="container">
 <?php
-
-$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-session_start();
 if (!isset($_SESSION['id']))
 	$_SESSION['id'] = 0;
 if (!isset($_SESSION['list']))
@@ -49,17 +45,6 @@ if (isset($_GET['type']))
 	else if ($_GET['type'] == "confirme")
 	{
 		header('Location: index.php?page=valide');
-
-	/*
-		$reponse = $bdd->query('INSERT INTO ticket(list, prix_total, date, id_user) VALUES (' \
-	   .serialize($_SESSION['list']) \
-	   .(42) \
-	   .date("Y-m-d H:i:s") \
-	   .$_SESSION['id_use'].')');
-	 */
-		// Bon javoue que la requet est degueulasse !
-		// et qu'il faudrait utiliser prepare
-		// Mais bon il est 3H et il y en a qui bosse :D
 	}
 }
 
@@ -128,4 +113,4 @@ while ($res = $reponse->fetch())
 echo "</div>";
 ?>
 </div>
-</body>
+</div>

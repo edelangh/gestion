@@ -1,7 +1,5 @@
-<?PHP
-$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-session_start();
-
+<?php
+	require_once("header.php");
 		$cmd = Array();
 		$prix_total = 0;
 		foreach ($_SESSION['list'] as $key => $nbr)
@@ -14,11 +12,14 @@ session_start();
 		$_SESSION['cmd']['txt'] = json_encode($cmd);
 		$_SESSION['cmd']['prix'] = $prix_total;
 ?>
-	A Payer : <?PHP echo $prix_total; ?> &euro; <br />
-	Payer   :
-	<form action="valideEnd.php" method="GET">
-		<input type="value"  name="give" value="0"/>
-		<input type="hidden" name="total" value="<?= $prix_total ?>" />
-		<button type="submit">Valider</button>
-	</form>
-		<a href="index.php?page=client" role="button">Retour</a>
+	<div class="container">
+		A Payer : <?PHP echo $prix_total; ?> &euro; <br />
+		Payer   :
+		<form action="valideEnd.php" method="GET">
+			<input type="value"  name="give" value="0"/>
+			<input type="hidden" name="total" value="<?= $prix_total ?>" />
+			<button type="submit">Valider</button>
+		</form>
+			<a href="index.php?page=client" role="button">Retour</a>
+	</div>
+<?php require_once("footer.php"); ?>

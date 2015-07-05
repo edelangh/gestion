@@ -1,7 +1,6 @@
 <?PHP
-session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '');
-
+require_once("header.php");
+echo "<div class=\"container\">";
 $req = $bdd->prepare("INSERT INTO ticket(list, prix_total, date, id_user) VALUES ( :list, :total, NOW(), :user)");
 $req->execute(array('list' => $_SESSION['cmd']['txt'],
 					'total' => $_SESSION['cmd']['prix'],
@@ -26,4 +25,6 @@ if ($_GET['give'] > 0) {
 	echo "&euro; <br />";
 }
 ?>
-<a href="index.php"><button>OK</button></a>
+	<a href="index.php"><button>OK</button></a>
+</div>
+<?php require_once("footer.php"); ?>
