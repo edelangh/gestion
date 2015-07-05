@@ -5,136 +5,120 @@ j'espere qu'elle sera courte si je continue comme ca ....
 */
 
 @font-face {
-    font-family: "ZeroThree";
-    src: url('../fonts/zerothre.ttf');
+	font-family: "ZeroThree";
+	src: url('../fonts/zerothre.ttf');
 }
 
 body {
-    font-family: 'ZeroThree';
-}
-
-#list {
-    background-color: red;
-    float: left;
-    width: 80%;
-    height: 50%;
-}
-
-#list #action #buy {
-    float: right;
-}
-
-#list #action #clear {
-    float: right;
-}
-
-
-#buy_zone {
-    position: absolute;
-    margin-top: 10%;
-    width: 80%;
-    height: 50%;
-    float: right;
-}
-#buy_zone #categories {
-width: 10%;
-height: 100%;
-    background-color: yellow;
-    float: left;
-}
-
-
-#buy_zone #produits {
-
-width: 90%;
-height: 100%;
-    background-color: pink;
-    float: right;
-}
-
-.produit {
-    float: left;
+	font-family: 'ZeroThree';
 }
 
 img {
-    width: 10vmin;
-    height: 8vmin;
+	width: 100px;
+	height: 100px;
 }
 
+#buy_zone {
+}
+
+#alert {
+	background-color: red;
+	height: 120px;
+}
+
+#categories {
+	background-color: yellow;
+}
+
+#produits {
+	background-color: blue;
+}
+
+.categorie {
+}
+
+.produit{
+	display: inline-block;
+
+}
+
+#panier {
+	background-color: lightblue;
+}
 
 /*
 ** Navigation Bar Custom Color (NBCC pour les intimes)
 */
 .navbar-default {
-  background-color: #1778a1;
-  border-color: #3194be;
+background-color: #1778a1;
+border-color: #3194be;
 }
 .navbar-default .navbar-brand {
-  color: #fbde18;
+color: #fbde18;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #ff000e;
+color: #ff000e;
 }
 .navbar-default .navbar-text {
-  color: #fbde18;
+color: #fbde18;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #fbde18;
+color: #fbde18;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #ff000e;
+color: #ff000e;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
-  background-color: #1778a1;
+background-color: #1778a1;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-  color: #fbde18;
+color: #fbde18;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #ff000e;
-  background-color: #3194be;
+color: #ff000e;
+background-color: #3194be;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-  background-color: #1778a1;
+background-color: #1778a1;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #ff000e;
-  background-color: #3194be;
+color: #ff000e;
+background-color: #3194be;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #ff000e;
-  background-color: #3194be;
+color: #ff000e;
+background-color: #3194be;
 }
 .navbar-default .navbar-toggle {
-  border-color: #3194be;
+border-color: #3194be;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #3194be;
+background-color: #3194be;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fbde18;
+background-color: #fbde18;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #fbde18;
+border-color: #fbde18;
 }
 .navbar-default .navbar-link {
-  color: #fbde18;
+color: #fbde18;
 }
 .navbar-default .navbar-link:hover {
-  color: #ff000e;
+color: #ff000e;
 }
 
 @media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #fbde18;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #ff000e;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #ff000e;
-    background-color: #3194be;
-  }
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+color: #fbde18;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+color: #ff000e;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+color: #ff000e;
+background-color: #3194be;
+}
 }
