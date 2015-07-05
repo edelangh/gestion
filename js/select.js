@@ -1,41 +1,32 @@
 
-function ft_reload(page, type, id) {
-            var link = "index.php";
-            link += "?page="+page;
-            link += "&type="+type;
-            link += "&id=" + id;
-            window.location = link;
-
-}
-
 function init()
 {
    $('#list #action #buy ').mousedown(function(event) {
             var id = $(this)[0].id;
             if (event.which == 1)
-                ft_reload("client", "confirme", id);
+                ft_reload("client", "confirme", "&id="+id);
             });
   
    $('#list #action #clear ').mousedown(function(event) {
             var id = $(this)[0].id;
             if (event.which == 1)
-                ft_reload("client", "clear", id);
+                ft_reload("client", "clear", "&id="+id);
             });
   
    $('#list .produit ').mousedown(function(event) {
             var id = $(this)[0].id;
             if (event.which == 1)
-                ft_reload("client", "cancel", id);
+                ft_reload("client", "cancel", "&id="+id);
             });
   
     $('#buy_zone .produit ').mousedown(function(event) {
             var id = $(this)[0].id;
             if (event.which == 1)
-                ft_reload("client", "buy", id);
+                ft_reload("client", "buy", "&id="+id);
             });
     $('#buy_zone .categorie ').mousedown(function(event) {
             var id = $(this)[0].id;
             if (event.which == 1)
-                ft_reload("client", "categorie", id);
+                ft_reload("client", "categorie", "&id="+id);
             });
 }

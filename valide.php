@@ -1,7 +1,8 @@
+<body onload="init()">
+<script src="js/valide.js"></script>
 <?PHP
 $bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', 'password');
 session_start();
-
 
 
 		$cmd = Array();
@@ -14,11 +15,16 @@ session_start();
 			$cmd[] = array("id" => $key, "nbr" => $nbr, "prix_unit" => $res['prix']);
 			$prix_total += $res['prix'] * $nbr;
 		}
-		echo "Prix Total:".$prix_total." E";
 		echo json_encode($cmd);
+
 ?>
+<script type='text/javascript'>var prixTotal=<?PHP echo $prix_total;?>;</script>
+<!-- Je pense que c'est le trucs le moins secu du monde -->
+</br>
 	A Payer : <?PHP echo $prix_total; ?>
-	Payer   : <input type="value" value="0"/>
+</br>
+	Payer   : <input type="number" id="payer" value="0"/>
 </br>
 <a href="index.php?page=client">Return</a>
-<a href="index.php?page=valideEnd">Accept</a>
+<input type="button" id="accept" value="Accept" />
+</body>
