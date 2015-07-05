@@ -45,6 +45,15 @@ height: 100%;
 
 .produit {
     float: left;
+    border-style: solid;
+    border-width: 2px;
+    border-color: green;
+}
+
+.lowQuantity {
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
 }
 
 img {
