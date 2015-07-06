@@ -12,7 +12,7 @@
 		<div class="container">
 			<div class="accueil">
 				<form action="log.php" method="POST">
-					<input type="text"  class="log_name" name="login" />
+					<input type="text"  class="log_name" name="login" autofocus/>
 					<input type="password"  class="log_pass" name="pass" />
 					<input type="submit" class="log_button" value="OK" />
 				</form>

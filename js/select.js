@@ -1,12 +1,32 @@
 $(document).ready(function(){
     init();
 
-	$("#add_product #scancode").keypress(function(e) {
+    $("#add_product :input").keypress(function(e) {
+        //Enter key
+        if (e.which == 13) {
+            return false;
+        }
+    });
+    $("#modif_product :input").keypress(function(e) {
 		//Enter key
 		if (e.which == 13) {
 			return false;
 		}
 	});
+
+    $(".prod_mod").mousedown(function(event) {
+                var id = $(this)[0].id;
+                if (event.which == 1)
+                    window.location = "prod_mod.php?id=" + id;
+                });
+    $(".prod_del").mousedown(function(event) {
+                var id = $(this)[0].id;
+                if (confirm("Supprimer le produit ? (Attention, cette action est definitive)")) {
+                    if (event.which == 1)
+                        window.location = "del_product.php?id=" + id;
+                }
+                });
+
 
     function ft_reload(page, type, id) {
                 var link = "index.php";

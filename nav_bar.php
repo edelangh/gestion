@@ -44,8 +44,10 @@
 					<ul class="dropdown-menu">
 						<li><a href="stock.php">Ajouter des stocks</a></li>
 						<li><a href="products.php">Ajouter</a></li>
-						<li><a href="#">Modifier</a></li>
-						<li><a href="#">Supprimer</a></li>
+						<?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+							<li><a href="products.php?type=modif">Modifier</a></li>
+							<li><a href="products.php?type=del">Supprimer</a></li>
+						<?php endif ?>
 					</ul>
 				</li>
 				<?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
@@ -57,8 +59,8 @@
 							<li><a href="#">Supprimer</a></li>
 						</ul>
 					</li>
-				<?php endif ?>
 				<li><a href="#">Stats</a></li>
+				<?php endif ?>
 			</ul>
 			 <ul class="nav navbar-nav navbar-right">
 				<li>
