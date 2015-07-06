@@ -4,8 +4,20 @@
       $active = 1;
       break;
 
-      case '/gestion/categories.php':
+	case '/gestion/categories.php':
       $active = 2;
+      break;
+    
+	case '/gestion/refeel_stock.php':
+      $active = 3;
+      break;
+    
+	case '/gestion/day_result.php':
+      $active = 4;
+      break;
+
+	case '/gestion/beta_test.php':
+      $active = 5;
       break;
     
     default:
@@ -39,7 +51,7 @@
 						<li><a href="#">Erreur de caisse / Remboursement</a></li>
 					</ul>
 				</li>
-				<li>
+				<li<?php if ($active == 3) echo " class=\"active\""; ?>>
 					<a href="refeel_stock.php">Tranferer des stocks</a>
 				</li>
 				<li class="dropdown<?php if ($active == 1) echo " active"; ?>">
@@ -64,8 +76,15 @@
 					</li>
 				<li><a href="#">Stats</a></li>
 				<?php endif ?>
+				<li<?php if ($active == 4) echo " class=\"active\""; ?>>
+					<a href="day_result.php">Bilan journalier</a>
+				</li>
 			</ul>
 			 <ul class="nav navbar-nav navbar-right">
+			 	<li<?php if ($active == 5) echo " class=\"active\""; ?>>
+					<a href="beta_test.php" role="button">Feedback</a>
+			 		
+			 	</li>
 				<li>
 					<div class="bar3000">Bar Parallèle 3000</div>
 				</li>

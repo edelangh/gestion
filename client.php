@@ -66,13 +66,14 @@
 			<div class="outlined_txt" id="product_title">Selectionner le produit :</div>
 			<?php
 			$reponse = $bdd->query('SELECT * FROM produits WHERE id_categorie='. $_SESSION['id'] .' AND nbr > 0');
-			while ($res = $reponse->fetch())
-			{
-					echo "<div class='produit' id=".$res['id'].">";
-					echo "<img src='".$res['img']."'></img>";
-					echo "</div>";
-			}
-			?>
+			while ($res = $reponse->fetch()) : ?>
+			
+					<div class="produit" id="<?= $res['id'] ?>">
+					<img src="<?= $res['img'] ?>"></img>
+					<div class="prod_stock outlined_txt">X<?= $res['nbr']?></div>
+					</div>
+			
+			<?php endwhile ?>
 			</div>
 		</div>
 
