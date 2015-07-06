@@ -1,5 +1,16 @@
 <div class="container">
-	<?php require_once("client_dispatch.php"); ?>
+	<?php
+
+	require_once("client_dispatch.php");
+
+	$req = $bdd->query('SELECT id FROM produits WHERE nbr < nbr_limit');
+	while ($data = $req->fetch(PDO::FETCH_ASSOC))
+	{
+		if (!isset($_SESSION['need']) || !in_array($data['id'], $_SESSION['need']))
+			$_SESSION['need'][] = $data['id'];
+	}
+	
+	?>
 	<div class="row" id="buy_zone">
 		<div class="col-md-10 col-md-offset-2 need_bar">
 			<div  id="need_bar">

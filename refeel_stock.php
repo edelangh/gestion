@@ -1,7 +1,11 @@
-
 <?php require_once("header.php"); ?>
 <div class="container">
-	<form id="add_stock" action="add_stock.php" method="POST">
+	<div class="outlined_txt" style="color: #1778A1">Selectionner le lieu, cliquer sur le produit et indiquer la quantité a transferer :</div>
+	<form action="transfere_stock.php" method="POST">
+	<select name="place" class="form-control">
+		<option value="College">College</option>
+		<option value="Gymnase">Gymnase</option>
+	</select>
 	<?php
 		$req = $bdd->query('SELECT * FROM produits');
 

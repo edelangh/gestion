@@ -23,12 +23,6 @@
 		$req->execute(array("qt" => $value, "id" => $key));
 	}
 
-	$req = $bdd->query('SELECT id FROM produits WHERE nbr < nbr_limit');
-	while ($data = $req->fetch(PDO::FETCH_ASSOC))
-	{
-		if (!isset($_SESSION['need']) || !in_array($data['id'], $_SESSION['need']))
-			$_SESSION['need'][] = $data['id'];
-	}
 	$_SESSION['list'] = Array();
 	unset($_SESSION['cmd']);
 

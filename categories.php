@@ -1,25 +1,15 @@
-<?php require_once("header.php"); ?>
-<div class="container">
-	<form action="add_categorie.php" method="POST">
-		<div class="form-group">
-			<label for="name">Nom</label>
-			<input type="text" class="form-control" name="name" placeholder="Nom" autofocus>
-		</div>
+<?php require_once("header.php"); 
 
-		<div class="form-group">
-			<label for="img">Image</label>
-			<input type="file" name="img">
-		</div>
+if ((isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+	&& ((isset($_GET['type']) && ($_GET['type'] == "modif" || $_GET['type'] == "del" ) )))
+{
+	if ($_GET['type'] == "del")
+		require_once("cats_del.php");
+	else
+		require_once("cats_mod.php");
 
-		<div class="form-group">
-			<label for="prix">Prix unitaire d'achat</label>
-			<div class="input-group">
-				<input type="number" class="form-control" name="prix" step="0.01" min="0">
-				<div class="input-group-addon">€</div>
-			</div>
-		</div>
+}
+else
+	require_once("cat_add.php");
 
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-</div>
-<?php require_once("footer.php"); ?>
+require_once("footer.php"); ?>

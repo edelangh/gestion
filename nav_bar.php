@@ -39,6 +39,9 @@
 						<li><a href="#">Erreur de caisse / Remboursement</a></li>
 					</ul>
 				</li>
+				<li>
+					<a href="refeel_stock.php">Tranferer des stocks</a>
+				</li>
 				<li class="dropdown<?php if ($active == 1) echo " active"; ?>">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produits<span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -55,8 +58,8 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="categories.php">Ajouter</a></li>
-							<li><a href="#">Modifier</a></li>
-							<li><a href="#">Supprimer</a></li>
+							<li><a href="categories.php?type=modif">Modifier</a></li>
+							<li><a href="categories.php?type=del">Supprimer</a></li>
 						</ul>
 					</li>
 				<li><a href="#">Stats</a></li>

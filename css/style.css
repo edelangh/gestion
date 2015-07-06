@@ -275,6 +275,43 @@ img {
 	cursor: pointer;
 }
 
+
+.cat {
+	display: inline-block;
+	
+	text-align: center;
+
+	width: 220px;
+	height: 90px;
+
+	cursor: pointer;
+}
+
+.cat img {
+	height: 60px;
+}
+
+.prod_box {
+	height: 120px;
+	width: 120px;
+	filter: grayscale(100%);
+	display: inline-block;
+	position: relative;
+}
+
+.checked {
+	filter: grayscale(0%);
+}
+
+.txt {
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	margin-top: 45px;
+	margin-left: 10px;
+	display: none;
+}
+
 /*
 ** Navigation Bar Custom Color (NBCC pour les intimes)
 */

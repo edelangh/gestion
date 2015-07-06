@@ -27,6 +27,19 @@ $(document).ready(function(){
                 }
                 });
 
+    $(".cat_mod").mousedown(function(event) {
+                var id = $(this)[0].id;
+                if (event.which == 1)
+                    window.location = "cat_mod.php?id=" + id;
+                });
+    $(".cat_del").mousedown(function(event) {
+                var id = $(this)[0].id;
+                if (confirm("Supprimer la catégorie ? (Attention, cette action est definitive)")) {
+                    if (event.which == 1)
+                        window.location = "del_cat.php?id=" + id;
+                }
+                });
+
 
     function ft_reload(page, type, id) {
                 var link = "index.php";
@@ -45,6 +58,33 @@ $(document).ready(function(){
                 window.location = link;
 
     }
+
+    $('.prod_box').mousedown(function(event) {
+        var item = $(this);
+        if (event.which == 1)
+        {
+            var txt = $(this).children("input[type=text]");
+            if( !$(item).is('.checked')){
+                $(this).addClass('checked');
+                $(this).children("input[type=checkbox]").prop('checked', true);
+
+                $(txt).toggle(20, function () {
+                    $(this).focus();
+                    // alert("test");
+                });
+
+                $(txt).change(function() {
+                    $(item).children("input[type=checkbox]").val($(this).val());
+                });
+
+            } else {
+                $(this).removeClass('checked');
+                $(this).children("input").prop('checked', false);
+
+                $(txt).toggle();
+            }
+        }
+    });
 
     function init()
     {
