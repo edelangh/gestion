@@ -35,12 +35,14 @@ $(document).ready(function(){
                 });
       
        $('#panier #action #clear ').mousedown(function(event) {
+             if (confirm("Vider le panier ?")) {
                 var id = $(this)[0].id;
                 if (event.which == 1)
                     ft_reload("client", "clear", id);
+            }
                 });
-      
-       $('#panier .produit ').mousedown(function(event) {
+
+       $('#panier .product ').mousedown(function(event) {
                 var id = $(this)[0].id;
                 if (event.which == 1)
                     ft_reload("client", "cancel", id);

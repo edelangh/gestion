@@ -32,7 +32,7 @@ if (isset($_GET['type']))
 		if (!isset($_SESSION['list'][$id]))
 			$_SESSION['list'][$id] = 0;
 		$_SESSION['list'][$id] += 1;
-		}
+	}
 	else if ($_GET['type'] == "categorie")
 	{
 		$_SESSION['id'] = $_GET['id'];

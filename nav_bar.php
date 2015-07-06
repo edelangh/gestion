@@ -25,7 +25,7 @@
 			<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="index.php">
-				BRAND
+				<?= $_SESSION['login']; ?>
 			</a>
 		</div>
 
@@ -42,20 +42,31 @@
 				<li class="dropdown<?php if ($active == 1) echo " active"; ?>">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produits<span class="caret"></span></a>
 					<ul class="dropdown-menu">
+						<li><a href="stock.php">Ajouter des stocks</a></li>
 						<li><a href="products.php">Ajouter</a></li>
 						<li><a href="#">Modifier</a></li>
 						<li><a href="#">Supprimer</a></li>
 					</ul>
 				</li>
-				<li class="dropdown<?php if ($active == 2) echo " active"; ?>" >
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Ajouter</a></li>
-						<li><a href="#">Modifier</a></li>
-						<li><a href="#">Supprimer</a></li>
-					</ul>
-				</li>
+				<?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
+					<li class="dropdown<?php if ($active == 2) echo " active"; ?>" >
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="categories.php">Ajouter</a></li>
+							<li><a href="#">Modifier</a></li>
+							<li><a href="#">Supprimer</a></li>
+						</ul>
+					</li>
+				<?php endif ?>
 				<li><a href="#">Stats</a></li>
+			</ul>
+			 <ul class="nav navbar-nav navbar-right">
+				<li>
+					<div class="bar3000">Bar Parallèle 3000</div>
+				</li>
+				<li>
+					<a href="logout.php" role="button" class="glyphicon glyphicon-log-out"></a>
+				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

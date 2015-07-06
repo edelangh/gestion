@@ -49,7 +49,8 @@
 			<input type="text" class="form-control" name="scancode" id="scancode">
 		</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" name="loc" class="btn btn-primary">Submit</button>
+		<button type="submit" name="loc" value="new" class="btn btn-primary">Submit and add new</button>
 	</form>
 </div>
 <?php require_once("footer.php"); ?>

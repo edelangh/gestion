@@ -1,11 +1,11 @@
 <?php
 	session_start();
 	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
+// var_dump($_POST); die();
 	$query = "INSERT INTO
-			`produits`(`name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`)
+			`produits`(`name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`, `total_stock`)
 			VALUES
-			(:name, :img, :cout, :qt, :cat, :code, :qt_min, :prix)";
+			(:name, :img, :cout, :qt, :cat, :code, :qt_min, :prix, :qt)";
 	$req = $bdd->prepare($query);
 	$req->execute(array(
 		"name" => $_POST['name'],
@@ -17,5 +17,9 @@
 		"code" => $_POST['scancode'],
 		"prix" => $_POST['cat']
 		));
+	if ($_POST['loc'] == "new") {
+		header("location:products.php");
+		return ;
+	}
 	header("location:index.php");
 ?>
