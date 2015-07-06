@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.7
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Jul 03, 2015 at 06:14 AM
--- Server version: 5.6.25
--- PHP Version: 5.5.26
+-- Client :  127.0.0.1
+-- Généré le :  Lun 06 Juillet 2015 à 04:22
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,174 +17,139 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `serveur`
+-- Base de données :  `serveur`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie`
+-- Structure de la table `categorie`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `img` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `categorie`
+-- Contenu de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `name`, `img`) VALUES
-(1, 'boisson', 'http://thumbs.dreamstime.com/x/bouteilles-avec-des-boissons-19130707.jpg'),
-(2, 'barres', 'http://www.hellopro.fr/images/produit-2/4/2/2/barres-chocolatees-251224.jpg');
+(1, 'Boisson', 'img/Cat/Boissons.png'),
+(2, 'Alcool', 'img/Cat/Alcool.png'),
+(3, 'Snack', 'img/Cat/Mangé.png'),
+(4, 'Barre Chocolatée', 'img/Cat/BarresChoco.png'),
+(5, 'Glace', 'img/Cat/Glaces.png'),
+(6, 'Boisson Chaude', 'img/Cat/Chaud.png'),
+(7, 'Divers', 'img/Cat/Objets.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prix`
+-- Structure de la table `prix`
 --
 
 CREATE TABLE IF NOT EXISTS `prix` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `prix` float NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `id_categorie` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `prix`
+-- Contenu de la table `prix`
 --
 
-INSERT INTO `prix` (`id`, `prix`, `name`) VALUES
-(1, 1.2, 'cannette'),
-(2, 2.5, 'barre');
+INSERT INTO `prix` (`id`, `prix`, `id_categorie`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 1.5, 3),
+(4, 1, 4),
+(5, 2, 5),
+(6, 0.5, 6),
+(7, 1, 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produits`
+-- Structure de la table `produits`
 --
 
 CREATE TABLE IF NOT EXISTS `produits` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `prix_achat` float NOT NULL,
   `nbr` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
-  `scancode` int(11) NOT NULL,
+  `scancode` varchar(255) NOT NULL,
   `nbr_limit` int(11) DEFAULT NULL,
-  `id_prix` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `id_prix` int(11) DEFAULT NULL,
+  `total_stock` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `produits`
+-- Contenu de la table `produits`
 --
 
-INSERT INTO `produits` (`id`, `name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`) VALUES
-(1, 'coca-cola', 'http://img0.mxstatic.com/wallpapers/8fb418ea01c531fb5fe5ea2b3ead962e_large.jpeg', 0.5, 40, 1, 4242, 20, 1),
-(2, 'fanta-orange', 'http://www.pizzassimo.com/images/fanta_orange.jpg', 0.5, 40, 1, 666, 15, 1),
-(3, 'twix', 'http://media1.coffee-webstore.com/525-1588-thickbox/barre-chocolat-twix.jpg', 1.5, 20, 2, 25565, 10, 2),
-(4, 'lion', 'http://media1.coffee-webstore.com/564-1655-thickbox/boite-barre-chocolat-lion.jpg', 1.5, 15, 2, 753, 10, 2);
+INSERT INTO `produits` (`id`, `name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`, `total_stock`) VALUES
+(1, 'Coca', 'img/Item/F12.png', 0.5, 10, 1, '9782818903193', 10, 1, 16),
+(2, 'Panach''', 'img/Item/F3.png', 0.73, 9, 1, '9782818901731', 10, 1, 16),
+(3, 'Leff blonde', 'img/Item/A2.png', 1, 5, 2, '9782350789606', 2, 2, 5),
+(4, 'Crêpe', 'img/Item/M2.png', 0.07, 200, 3, '9782350789293', 10, 3, 200),
+(6, 'Balisto', 'img/Item/B2.png', 0.57, 8, 4, '9782350788364', 5, 4, 10),
+(7, 'Café / Thé', 'img/Item/C1.png', 0.01, 199, 6, '9782350787923', 20, 6, 200),
+(8, 'Ecocup', 'img/Item/O1.png', 1, 99, 7, '9782350787077', 0, 7, 100),
+(9, 'Twix', 'img/Item/B10.png', 0.53, 0, 4, '2951703709401', 0, 4, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket`
+-- Structure de la table `ticket`
 --
 
 CREATE TABLE IF NOT EXISTS `ticket` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `list` text NOT NULL,
   `prix_total` float NOT NULL,
   `date` datetime NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `ticket`
+--
+
+INSERT INTO `ticket` (`id`, `list`, `prix_total`, `date`, `id_user`) VALUES
+(1, '[{"id":6,"nbr":1,"prix_unit":"1"},{"id":7,"nbr":1,"prix_unit":"0.5"},{"id":8,"nbr":1,"prix_unit":"1"}]', 2.5, '2015-07-06 04:09:03', 1),
+(2, '[{"id":1,"nbr":5,"prix_unit":"1"},{"id":2,"nbr":5,"prix_unit":"1"},{"id":"","nbr":1,"prix_unit":null}]', 10, '2015-07-06 04:14:39', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) NOT NULL,
-  `pass` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `pass` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `user`
+-- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `pseudo`, `pass`) VALUES
-(3, 'eric', '2662a3c71dbf902fbec15d46139bd6d725991789c570f598743eb2d06ae02e6c79e7187487da2fd5cf69f90551110b16c46a2314960fc2386b340732bf931ad7'),
-(4, 'sduprey', 'c068a2cabe3a61b57e507338b9ba6990a8d99092b9d60c83aac81cff4c0ed52e4621303785521211eb17e5a04dc37a24140b1e4d5eb6b15395b01f172d89d32c');
+INSERT INTO `user` (`id`, `pseudo`, `pass`, `admin`) VALUES
+(1, 'Pyrate', '60ca972e501e0a2cd9e97e7744c99917018c1722fa6307febbda17bf11366771eab5e92141f04b4647321fdb98b97ebd1593d9742f9c036114dc64547a11eb79', 1);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categorie`
---
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `prix`
---
-ALTER TABLE `prix`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `produits`
---
-ALTER TABLE `produits`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ticket`
---
-ALTER TABLE `ticket`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categorie`
---
-ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `prix`
---
-ALTER TABLE `prix`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `produits`
---
-ALTER TABLE `produits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `ticket`
---
-ALTER TABLE `ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
