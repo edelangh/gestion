@@ -48,7 +48,7 @@
 					<a href="index.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caisse <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="index.php">Caisse</a></li>
-						<li><a href="#">Erreur de caisse / Remboursement</a></li>
+						<li><a href="caisse_error.php">Erreur de caisse / Remboursement</a></li>
 					</ul>
 				</li>
 				<li<?php if ($active == 3) echo " class=\"active\""; ?>>

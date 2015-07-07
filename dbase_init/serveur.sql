@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 06 Juillet 2015 à 22:39
+-- Généré le :  Mar 07 Juillet 2015 à 02:45
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -31,14 +31,7 @@ CREATE TABLE IF NOT EXISTS `caisse` (
   `fond` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `caisse`
---
-
-INSERT INTO `caisse` (`id`, `fond`, `date`) VALUES
-(1, 100, '2015-07-06');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -124,20 +117,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `id_prix` int(11) DEFAULT NULL,
   `total_stock` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
-
---
--- Contenu de la table `produits`
---
-
-INSERT INTO `produits` (`id`, `name`, `img`, `prix_achat`, `nbr`, `id_categorie`, `scancode`, `nbr_limit`, `id_prix`, `total_stock`) VALUES
-(1, 'Coca', 'img/Item/F12.png', 0.33, 49, 1, '9782818903193', 15, 1, 100),
-(3, 'Leff blonde', 'img/Item/A2.png', 1.03, 50, 2, '9782350789606', 3, 2, 50),
-(4, 'Crêpe', 'img/Item/M2.png', 0.08, 200, 3, '9782350789293', 20, 3, 200),
-(6, 'Balisto', 'img/Item/B2.png', 0.42, 29, 4, '9782350788364', 10, 4, 30),
-(7, 'Café / Thé', 'img/Item/C1.png', 0.01, 499, 6, '9782350787923', 10, 6, 500),
-(8, 'Ecocup', 'img/Item/O1.png', 1, 500, 7, '9782350787077', 10, 7, 500),
-(17, 'Panach''', 'img/Item/F3.png', 0.73, 15, 1, '9782818901731', 10, 1, 20);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -166,17 +146,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `date` datetime NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Contenu de la table `ticket`
---
-
-INSERT INTO `ticket` (`id`, `list`, `prix_total`, `date`, `id_user`) VALUES
-(1, '[{"id":17,"nbr":1,"prix_unit":"1"},{"id":1,"nbr":1,"prix_unit":"1"}]', 2, '2015-07-06 20:55:17', 3),
-(2, '[{"id":17,"nbr":4,"prix_unit":"1"}]', 4, '2015-07-06 21:16:59', 3),
-(3, '[{"id":6,"nbr":1,"prix_unit":"1"}]', 1, '2015-07-06 22:15:33', 3),
-(4, '[{"id":7,"nbr":1,"prix_unit":"0.5"}]', 0.5, '2015-07-06 22:15:54', 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -190,16 +160,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `pass` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `pseudo`, `pass`, `admin`) VALUES
-(1, 'Pyrate', '60ca972e501e0a2cd9e97e7744c99917018c1722fa6307febbda17bf11366771eab5e92141f04b4647321fdb98b97ebd1593d9742f9c036114dc64547a11eb79', 1),
-(2, 'Dominique', '813937f2bd0fe3f5402bceda538d375e09818ec33ddc047f0cea43e5fdffe4803395e04b88e1dee288489205a6301ded612062c2ce47ff10d8eba78d73cce36d', 0),
-(3, 'bar', '28af7dd8a08381b732b428541ddbf4e1b6d120d8318eb9cf8801c483147283b34761304518e502e28eeda8e9fdf9efa35fe0fb138078b21b444d3032e0cae10f', 0);
+(1, 'admin', '6a4e012bd9583858a5a6fa15f58bd86a25af266d3a4344f1ec2018b778f29ba83be86eb45e6dc204e11276f4a99eff4e2144fbe15e756c2c88e999649aae7d94', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
