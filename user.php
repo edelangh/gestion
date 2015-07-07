@@ -1,4 +1,4 @@
-<!-- <?php require_once("header.php"); ?> -->
+<?php require_once("header.php"); ?>
 <div class="container">
 	<form id="add_user" action="add_user.php" method="POST">
 		<div class="form-group">
