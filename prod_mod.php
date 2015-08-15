@@ -31,10 +31,23 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
 
 			<select name="cat" class="form-control">
 			<?php
-				$req2 = $bdd->query('SELECT cat.id, cat.name, p.prix FROM categorie AS cat INNER JOIN prix AS p ON cat.id = p.id_categorie ');
+				$req2 = $bdd->query('SELECT id, name FROM categorie');
 				while ($data2 = $req2->fetch(PDO::FETCH_ASSOC)) :
 			?>
-				<option value="<?= $data2['id'] ?>" <?php if ($data['id_categorie'] == $data2['id']) echo "selected" ?>><?= $data2['name']. " ( " . $data2['prix'] . " € )" ?></option>
+				<option value="<?= $data2['id'] ?>" <?php if ($data['id_categorie'] == $data2['id']) echo "selected" ?>><?= $data2['name'] ?></option>
+			<?php endwhile ?>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="prix">Prix</label>
+
+			<select name="prix" class="form-control">
+			<?php
+				$req2 = $bdd->query('SELECT id, prix FROM prix');
+				while ($data2 = $req2->fetch(PDO::FETCH_ASSOC)) :
+			?>
+				<option value="<?= $data2['id'] ?>" <?php if ($data['id_prix'] == $data2['id']) echo "selected" ?>><?= $data2['prix'] ?>€</option>
 			<?php endwhile ?>
 			</select>
 		</div>

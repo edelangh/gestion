@@ -8,16 +8,16 @@
       $active = 2;
       break;
     
-	case '/gestion/refeel_stock.php':
-      $active = 3;
-      break;
-    
 	case '/gestion/day_result.php':
       $active = 4;
       break;
 
 	case '/gestion/beta_test.php':
       $active = 5;
+      break;
+    
+	case '/gestion/caisse.php':
+      $active = 6;
       break;
     
     default:
@@ -48,16 +48,17 @@
 					<a href="index.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caisse <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="index.php">Caisse</a></li>
-						<li><a href="caisse_error.php">Erreur de caisse / Remboursement</a></li>
+						<li><a href="caisse_error.php">Erreur de caisse</a></li>
 					</ul>
 				</li>
 				<li<?php if ($active == 3) echo " class=\"active\""; ?>>
-					<a href="refeel_stock.php">Tranferer des stocks</a>
+					
 				</li>
 				<li class="dropdown<?php if ($active == 1) echo " active"; ?>">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produits<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="stock.php">Ajouter des stocks</a></li>
+						<li><a href="refeel_stock.php">Tranferer des stocks</a></li>
 						<li><a href="products.php">Ajouter</a></li>
 						<?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
 							<li><a href="products.php?type=modif">Modifier</a></li>
@@ -74,7 +75,9 @@
 							<li><a href="categories.php?type=del">Supprimer</a></li>
 						</ul>
 					</li>
-				<li><a href="#">Stats</a></li>
+				<li<?php if ($active == 6) echo " class=\"active\""; ?>>
+					<a href="caisse.php">Fond de caisse</a>
+				</li>
 				<?php endif ?>
 				<li<?php if ($active == 4) echo " class=\"active\""; ?>>
 					<a href="day_result.php">Bilan journalier</a>

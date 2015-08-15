@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', 'spoing', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	
 	// var_dump($_POST); die();
 
@@ -26,7 +26,7 @@
 		"qt" => intval($_POST['qt']),
 		"qt_min" => intval($_POST['qt_min']),
 		"code" => $_POST['scancode'],
-		"prix" => $_POST['cat'],
+		"prix" => $_POST['prix'],
 		"id" => $_POST['id']
 		));
 

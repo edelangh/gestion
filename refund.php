@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd = new PDO('mysql:host=localhost;dbname=serveur;charset=utf8', 'root', 'spoing', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	if (isset($_GET['id']) && is_numeric($_GET['id']))
 	{
 		$req = $bdd->prepare("SELECT list FROM ticket WHERE id = :id");

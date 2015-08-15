@@ -17,10 +17,22 @@
 
 			<select name="cat" class="form-control">
 			<?php
-				$req = $bdd->query('SELECT cat.id, cat.name, p.prix FROM categorie AS cat INNER JOIN prix AS p ON cat.id = p.id_categorie ');
+				$req = $bdd->query('SELECT id, name FROM categorie');
 				while ($data = $req->fetch(PDO::FETCH_ASSOC)) :
 			?>
-				<option value="<?= $data['id'] ?>"><?= $data['name']. " ( " . $data['prix'] . " € )" ?></option>
+				<option value="<?= $data['id'] ?>"><?= $data['name'] ?></option>
+			<?php endwhile ?>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="prix">Prix</label>
+			<select name="prix" class="form-control">
+			<?php
+				$req = $bdd->query('SELECT * FROM prix');
+				while ($data = $req->fetch(PDO::FETCH_ASSOC)) :
+			?>
+				<option value="<?= $data['id'] ?>"><?= $data['prix'] ?>€</option>
 			<?php endwhile ?>
 			</select>
 		</div>
@@ -47,6 +59,8 @@
 			<label for="scancode">Scancode</label>
 			<input type="text" class="form-control" name="scancode" id="scancode">
 		</div>
+
+
 
 		<button type="submit" name="loc" class="btn btn-primary">Submit</button>
 		<button type="submit" name="loc" value="new" class="btn btn-primary">Submit and add new</button>

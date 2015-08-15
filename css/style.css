@@ -148,6 +148,10 @@ img {
 	height: 30px;
 }
 
+.code :focus {
+	background-color: #E30613;
+}
+
 .produit{
 	display: inline-block;
 	width: 120px;

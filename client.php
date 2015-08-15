@@ -24,7 +24,7 @@
 							{
 								?>
 								<div class="need outlined_txt">
-								<div class="place">College</div>
+								<div class="place">Manque</div>
 								<img src="<?= $req['img']; ?>"></img>
 								<div class="qt">X<?php echo $req['nbr_limit'] - $req['nbr']; ?></div>
 								</div>
